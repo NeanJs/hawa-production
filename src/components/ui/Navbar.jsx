@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "@/images/Logo_hawa.png";
+import Logo from "@/images/logo_hawa.png";
 import { useEffect, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { Link } from "react-scroll";
