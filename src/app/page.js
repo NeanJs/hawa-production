@@ -1,7 +1,7 @@
 "use client";
-import { Navbar } from "@/components/ui/Navbar";
 import { Video } from "@/components/ui/VideoPlayer";
 import Homepage from "@/layout/homepage";
+import dynamic from "next/dynamic";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -10,7 +10,7 @@ import AboutPage from "@/layout/aboutus";
 import Services from "@/layout/services";
 import { Works } from "@/layout/works";
 import ContactPage from "@/components/ContactPage";
-
+const Navbar = dynamic(() => import("@/components/ui/Navbar"));
 export default function Home() {
   useEffect(() => {
     Aos.init({ duration: 800, easing: "ease-in", once: true });

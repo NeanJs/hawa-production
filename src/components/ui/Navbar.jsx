@@ -3,17 +3,19 @@ import Logo from "@/images/logo_hawa.png";
 import { useEffect, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
 import { Link } from "react-scroll";
-export const Navbar = () => {
+export default function Navbar() {
   const [menu, setMenu] = useState(false);
-  useEffect(() => {
-    window.onscroll = (e) => {
-      if (Number(window.scrollY) > 300) {
-        document.querySelector(".navlinks").classList.add("enable-bg");
-      } else {
-        document.querySelector(".navlinks").classList.remove("enable-bg");
-      }
-    };
-  }, [window.scroll]);
+  if (typeof window !== undefined) {
+    useEffect(() => {
+      window.onscroll = (e) => {
+        if (Number(window.scrollY) > 300) {
+          document.querySelector(".navlinks").classList.add("enable-bg");
+        } else {
+          document.querySelector(".navlinks").classList.remove("enable-bg");
+        }
+      };
+    }, [window.scroll]);
+  }
 
   return (
     <div className="w-full h-fit fixed top-0  bg-black bg-opacity-80 backdrop-blur-sm py-2 lg:p-0 z-20">
@@ -59,4 +61,4 @@ export const Navbar = () => {
       </div>
     </div>
   );
-};
+}
