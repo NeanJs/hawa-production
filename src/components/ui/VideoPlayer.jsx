@@ -10,32 +10,6 @@ export function Video() {
     zIndex: "-5",
   };
   return (
-    // <ReactPlayer
-    //   url={"https://youtu.be/V9G6YQDrXEk"}
-    //   style={{ style }}
-    //   loop
-    //   muted
-    //   playing
-    // />
-    // <video
-    //   tabindex="-1"
-    //   className="w-screen video-stream html5-main-video h-screen object-cover absolute -z-[5] opacity-40 left-0 top-0 grayscale-0 blur-sm"
-    //   //   className="video-stream html5-main-video"
-    //   webkit-playsinline=""
-    //   playsinline=""
-    //   controlslist="nodownload"
-    //   src="blob:https://www.youtube.com/5258c31d-c06b-4a49-bc83-0f30288420b4"
-    // ></video>
-    // <video
-    //   className="w-screen h-screen object-cover absolute -z-[5] opacity-40 left-0 top-0 grayscale-0 blur-sm"
-    //   controls
-    //   autoPlay
-    //   muted
-    //   loop
-    //   //   src="blob:https://www.youtube.com/5258c31d-c06b-4a49-bc83-0f30288420b4"
-    // >
-    //   <source src={"final.MOV"} className="w-full h-full" type="video/mp4" />
-    // </video>
     <ReactPlayer
       wrapper={({ children }) => (
         <div

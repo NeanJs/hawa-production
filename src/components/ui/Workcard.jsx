@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ThumbnailBox = ({ src, text, colSpan, rowSpan }) => {
+const ThumbnailBox = ({ thumbnail, text, handleModal }) => {
   return (
     <div
-      className={`relative cursor-pointer overflow-hidden ${colSpan} ${rowSpan}`}
+      onClick={handleModal}
+      className={`relative size-full cursor-pointer overflow-hidden`}
     >
-      <img src={src} alt="Thumbnail" className="w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+      <img
+        src={thumbnail}
+        alt="Thumbnail"
+        className="mb-4  rounded-lg object-cover"
+      />
+      <div className="absolute  inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
         <span className="text-white text-lg">{text}</span>
       </div>
     </div>

@@ -17,6 +17,7 @@ html {
 
 body {
   @apply bg-black;
+  @apply flex items-center justify-center;
 }
 
 @layer utilities {
@@ -50,6 +51,11 @@ textarea:focus {
   backdrop-filter: blur(10px);
 }
 
-.navlinks li, a {
+.navlinks li,
+a {
   @apply cursor-pointer;
+}
+
+.uploader input {
+  @apply border-2 border-slate-300 p-2 mb-2;
 }

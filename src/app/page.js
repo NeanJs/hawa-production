@@ -1,31 +1,21 @@
 "use client";
-import { Video } from "@/components/ui/VideoPlayer";
-import Homepage from "@/layout/homepage";
-import dynamic from "next/dynamic";
+import { useEffect } from "react";
+
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
 import "./globals.css";
-import AboutPage from "@/layout/aboutus";
-import Services from "@/layout/services";
-import { Works } from "@/layout/works";
-import ContactPage from "@/components/ContactPage";
-const Navbar = dynamic(() => import("@/components/ui/Navbar"));
+
+import FirebaseProvider from "@/context/FirebaseContext";
+import App from "./main";
+import Link from "next/link";
+
 export default function Home() {
   useEffect(() => {
-    Aos.init({ duration: 800, easing: "ease-in", once: true });
+    Aos.init({ duration: 800, easing: "ease", once: true });
   });
   return (
-    <div className="w-full mx-auto grid place-items-center">
-      {/* <div className="layout w-5/6 p-2 lg:w-3/5 flex flex-col items-center justify-center mx-auto"> */}
-      <Navbar />
-      <Video />
-      <Homepage />
-      <AboutPage />
-      <Services />
-      <Works />
-      <ContactPage />
-      {/* </div> */}
-    </div>
+    <FirebaseProvider>
+      <App />
+    </FirebaseProvider>
   );
 }
