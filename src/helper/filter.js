@@ -9,7 +9,7 @@ export const Filter = ({ data, filterdData, setFilteredData }) => {
   const [activeTab, setActive] = useState(0);
   const handleFilter = (tabItem, id) => {
     let filtered = [];
-    console.log(tabItem);
+
     if (tabItem == "all") {
       setFilteredData(data);
     } else {
@@ -19,7 +19,6 @@ export const Filter = ({ data, filterdData, setFilteredData }) => {
       setFilteredData(filtered);
     }
     setActive(id);
-    console.log(filterdData);
   };
   return (
     <div className="filter my-2">
