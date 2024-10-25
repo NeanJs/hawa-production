@@ -4,8 +4,10 @@ import { Filter } from "@/helper/filter";
 import { useEffect, useState } from "react";
 import { useFirebaseData } from "@/context/FirebaseContext";
 import YouTubePlayer from "react-player/youtube";
+import { MdPlayCircle, MdSmartDisplay } from "react-icons/md";
 
 import { Button } from "@/components/ui/Button";
+import { BsPlayBtnFill } from "react-icons/bs";
 
 export default function Works() {
   const data = [
@@ -117,35 +119,7 @@ export default function Works() {
           setFilteredData={setFilteredData}
         /> */}
 
-        {/* <div className="border-2 border-red-500 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-4 h-full"> */}
-        <div className="columns-2 gap-4 relative">
-          {gallery?.length > 0 &&
-            gallery.map((item) => (
-              <div
-                key={item?.id}
-                className="mb-8 group relative"
-                onClick={() => handleModal(item)}
-              >
-                <img
-                  src={item?.thumbnail}
-                  className="rounded-lg"
-                  alt={item?.title}
-                />
-                <div className="absolute  inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <span className="text-white text-lg">{item.text}</span>
-                </div>
-              </div>
-            ))}
-          {/* {gallery?.map((item) => (
-            <ThumbnailBox
-              key={item.id}
-              src={item.url}
-              text={item.title}
-              // colSpan={image?.colSpan || ""}
-              // rowSpan={image?.rowSpan || ""}
-            />
-          ))} */}
-        </div>
+        {Gallery(gallery, handleModal)}
       </CoverLayout>
       {modal && (
         <div
@@ -155,17 +129,44 @@ export default function Works() {
           <div
             data-aos="zoom-in"
             data-aos-duration={300}
-            className="modal h-4/6 w-2/6  bg-black overflow-hidden"
+            className="modal h-4/6 w-2/6  bg-black overflow-hidden relative"
           >
             <YouTubePlayer url={modalData.url} width={"100%"} height={"70%"} />
             <Button
               event={() => setModal(false)}
-              className="bg-white p-4"
+              className="bg-white p-4 absolute top-0 right-0 m-2"
               text={"Close"}
             />
           </div>
         </div>
       )}
+    </div>
+  );
+}
+export function Gallery(gallery, handleModal) {
+  return (
+    <div className="columns-2 gap-4 relative">
+      {gallery?.length > 0 &&
+        gallery.map((item) => (
+          <div
+            key={item?.id}
+            className="mb-8 group relative"
+            onClick={() => handleModal(item)}
+          >
+            <img
+              src={item?.thumbnail}
+              className="rounded-lg"
+              alt={item?.title}
+            />
+            <div className="absolute  inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <MdPlayCircle className="text-white text-3xl" />
+              <span className="text-white text-lg">{item.title}</span>
+              <span className="type text-black bg-white size-fit px-2 py-1 rounded-md">
+                {item.type}
+              </span>
+            </div>
+          </div>
+        ))}
     </div>
   );
 }
