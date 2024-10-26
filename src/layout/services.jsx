@@ -11,8 +11,7 @@ export default function Services() {
             Our Services
           </h1>
           <p className="text-lg text-white">
-            We offer a dynamic range of media and web services that bring your
-            vision to life
+            Comprehensive production services tailored to your needs
           </p>
         </div>
         <div className="service-cards p-4 my-8 flex flex-wrap gap-4 justify-center lg:justify-between mx-auto w-full">

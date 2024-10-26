@@ -78,7 +78,8 @@ export default function Uploader() {
         await updateDoc(updateRef, values);
         toast.success("Video updated successfully!");
       }
-      setGalleryData(initialValues);
+
+      handleReset();
       handleFetchGallery();
     } catch (error) {
       toast.error("Couldn't upload file", error);
@@ -96,7 +97,7 @@ export default function Uploader() {
   };
   return (
     <div className="uploader flex gap-4 items-center justify-center min-h-screen bg-black flex-wrap">
-      <div className="bg-white w-[90%] lg:size-6/12 rounded-xl overflow-hidden">
+      <div className="bg-white w-[90%] lg:size-6/12 rounded-xl overflow-hidden max-h-[600px] overflow-scroll">
         <div className="grid grid-cols-3  w-full gap-1 p-2">
           {gallery?.map((item) => (
             <div

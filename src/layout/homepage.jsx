@@ -32,10 +32,10 @@ export default function Homepage() {
             data-aos="fade-down"
             data-aos-delay={300}
           >
-            <Link to="projects-page">
+            <Link to="projects-page" offset={-150}>
               <Button text={"Our Recent Works"} />
             </Link>
-            <Link to="contact-page">
+            <Link to="contact-page" offset={-150}>
               <Button text={"Discuss a project"} />
             </Link>
           </div>

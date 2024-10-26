@@ -1,6 +1,13 @@
 import { CoverLayout } from "@/layout/coverlayout";
 import React from "react";
 import { Button } from "./ui/Button";
+import {
+  FaInstagram,
+  FaFacebook,
+  FaWhatsapp,
+  FaDiscord,
+} from "react-icons/fa6";
+import { Footer } from "@/layout/footer";
 
 const ContactPage = () => {
   return (
@@ -32,6 +39,27 @@ const ContactPage = () => {
           ></textarea>
           <Button text={"Send"} />
         </div>
+        <div className="text-center w-full my-12 flex flex-col gap-8">
+          <span className="  text-[#424b57] text-2xl divider">OR</span>
+          <div className="social-handles  w-full flex flex-col items-center justify-center gap-4 ">
+            <span className="text-2xl  text-[#424b57]">Ping us at</span>
+            <div className="flex logos-social gap-8 items-center text-4xl">
+              <a>
+                <FaFacebook />
+              </a>
+              <a>
+                <FaInstagram />
+              </a>
+              <a>
+                <FaWhatsapp />
+              </a>
+              <a>
+                <FaDiscord />
+              </a>
+            </div>
+          </div>
+        </div>
+        <Footer />
       </CoverLayout>
     </div>
   );

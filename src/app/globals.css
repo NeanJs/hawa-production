@@ -7,12 +7,14 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"); */
 /* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 html {
   scroll-behavior: smooth;
   @apply text-[14px];
   overflow-x: hidden;
-  font-family: "Poppins", sans-serif !important;
+  /* font-family: "Poppins", sans-serif !important; */
+  font-family: "Quicksand", sans-serif !important;
 }
 
 body {
@@ -59,4 +61,28 @@ a {
 .login-form input,
 .uploader input {
   @apply border-2 border-slate-300 p-2 mb-2;
+}
+
+.testimonial .header {
+  @apply text-white relative mb-4 text-lg;
+}
+.testimonial .header::after {
+  content: "";
+  @apply w-full h-0.5 bg-white absolute -bottom-2 flex;
+}
+
+.logos-social a {
+  @apply w-fit h-fit p-2 bg-white text-[#1e1e1e] flex items-center justify-center rounded-full;
+}
+.divider {
+  @apply flex gap-4 items-center justify-center;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  @apply bg-[#424b57] w-[100px] h-0.5 block;
+}
+
+a {
+  @apply cursor-pointer;
 }

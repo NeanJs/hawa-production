@@ -11,10 +11,15 @@ export default function FirebaseProvider({ children }) {
         await getDocs(collection(firestore, "gallery")),
         await getDocs(collection(firestore, "about")),
         await getDocs(collection(firestore, "testimonials")),
+        await getDocs(collection(firestore, "team")),
       ];
 
-      const [gallerySnapshots, aboutSnapShots, testimonialSnapshots] =
-        await Promise.all(collections);
+      const [
+        gallerySnapshots,
+        aboutSnapShots,
+        testimonialSnapshots,
+        teamSnapShots,
+      ] = await Promise.all(collections);
       const gallery = gallerySnapshots.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -28,8 +33,12 @@ export default function FirebaseProvider({ children }) {
         ...doc.data(),
       }));
 
-      setData({ gallery, testimonials, about });
-  } catch (error) {
+      const team = teamSnapShots.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setData({ gallery, testimonials, about, team });
+    } catch (error) {
       console.log(error);
       return error;
     }
