@@ -908,9 +908,6 @@ video {
 .p-4 {
   padding: 1rem;
 }
-.p-6 {
-  padding: 1.5rem;
-}
 .p-8 {
   padding: 2rem;
 }
@@ -1039,6 +1036,9 @@ video {
 .tracking-\[8px\] {
   letter-spacing: 8px;
 }
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
 .text-\[\#4166EF\] {
   --tw-text-opacity: 1;
   color: rgb(65 102 239 / var(--tw-text-opacity));
@@ -1054,10 +1054,6 @@ video {
 .text-dark {
   --tw-text-opacity: 1;
   color: rgb(25 25 25 / var(--tw-text-opacity));
-}
-.text-gray-300 {
-  --tw-text-opacity: 1;
-  color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 .text-gray-500 {
   --tw-text-opacity: 1;
@@ -1082,10 +1078,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-yellow-500 {
-  --tw-text-opacity: 1;
-  color: rgb(234 179 8 / var(--tw-text-opacity));
 }
 .opacity-0 {
   opacity: 0;
@@ -1280,6 +1272,60 @@ a {
 
 a {
   cursor: pointer;
+}
+#preloader {
+  position: absolute;
+}
+
+.preload-logo {
+  animation: logoFadeIn 5s ease forwards; /* Using 'ease' for smooth progression */
+  opacity: 0.2; /* Starts with reduced opacity */
+}
+
+.preload-circle {
+  stroke-dasharray: 740; /* Circumference of the circle */
+  stroke-dashoffset: 740; /* Start with the stroke hidden */
+  stroke: white;
+  stroke-width: 5; /* Adjust as needed */
+  fill: none;
+  animation: fillCircleClockwise 5s ease forwards; /* Using 'ease' for a natural fill */
+}
+
+#preloader {
+  animation: expandCircle 1s ease forwards 5s; /* Smooth expansion */
+  transform-origin: center;
+  transform: scale(1); /* Initial scale */
+  opacity: 1; /* Ensure visibility */
+}
+
+@keyframes logoFadeIn {
+  0% {
+    opacity: 0.2; /* Start at reduced opacity */
+    transform: scale(1); /* No size change */
+  }
+  100% {
+    opacity: 1; /* Fully visible */
+    transform: scale(1); /* Keep scale constant */
+  }
+}
+
+@keyframes fillCircleClockwise {
+  0% {
+    stroke-dashoffset: 740; /* Hidden stroke */
+  }
+  100% {
+    stroke-dashoffset: 0; /* Fully revealed stroke */
+  }
+}
+
+@keyframes expandCircle {
+  0% {
+    transform: scale(1); /* Original size */
+  }
+  100% {
+    transform: scale(0); /* Expand the circle */
+    opacity: 0; /* Optional: fade out during expansion */
+  }
 }
 
 .hover\:bg-transparent:hover {

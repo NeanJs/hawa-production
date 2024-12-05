@@ -15,6 +15,8 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { MdDelete, MdEdit, MdLogout } from "react-icons/md";
 import { redirect, useRouter } from "next/navigation";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 export default function Uploader() {
   const router = useRouter();
@@ -89,12 +91,28 @@ export default function Uploader() {
     setGalleryData(values);
   };
   const handleDeleteItem = async (values) => {
-    deleteDoc(doc(firestore, "gallery", values.id));
+    confirmAlert({
+      title: `Delete ${values.title}`,
+      message: "Do you want to delete the video?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => deleteDoc(doc(firestore, "gallery", values.id)),
+        },
+        {
+          label: "No",
+        },
+      ],
+      closeOnEscape: true,
+      closeOnClickOutside: true,
+    });
+
     handleFetchGallery();
   };
   const handleReset = () => {
     setGalleryData(initialValues);
   };
+
   return (
     <div className="uploader flex gap-4 items-center justify-center min-h-screen bg-black flex-wrap">
       <div className="bg-white w-[90%] lg:size-6/12 rounded-xl overflow-hidden max-h-[600px] overflow-scroll">

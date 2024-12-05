@@ -3,22 +3,40 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa6";
 import { CoverLayout } from "./coverlayout";
 import { useFirebaseData } from "@/context/FirebaseContext";
 
-// Sample data for team members
-
-// Social media icons (replace with actual icon components or paths)
-const SocialMediaIcons = () => (
-  <div className="flex justify-center space-x-4 mt-2">
-    <a href="#" className="text-gray-600 hover:text-gray-800">
-      <FaFacebook />
-    </a>
-    <a href="#" className="text-gray-600 hover:text-gray-800">
-      <FaTwitter />
-    </a>
-    <a href="#" className="text-gray-600 hover:text-gray-800">
-      <FaInstagram />
-    </a>
-  </div>
-);
+const SocialMediaIcons = ({ links }) => {
+  const linkList = Object.keys(links);
+  return (
+    <div className="flex justify-center space-x-4 mt-2">
+      {linkList.includes("facebook") && (
+        <a
+          href={links["facebook"]}
+          target="_blank"
+          className="text-gray-600 hover:text-gray-800"
+        >
+          <FaFacebook />
+        </a>
+      )}
+      {linkList.includes("instagram") && (
+        <a
+          href={links["instagram"]}
+          target="_blank"
+          className="text-gray-600 hover:text-gray-800"
+        >
+          <FaInstagram />
+        </a>
+      )}
+      {linkList.includes("twitter") && (
+        <a
+          href={links["twitter"]}
+          target="_blank"
+          className="text-gray-600 hover:text-gray-800"
+        >
+          <FaTwitter />
+        </a>
+      )}
+    </div>
+  );
+};
 
 const TeamMember = ({ member, delay }) => (
   <div
@@ -29,11 +47,11 @@ const TeamMember = ({ member, delay }) => (
     <img
       src={member.img}
       alt={member.name}
-      className="w-64 h-64 mx-auto rounded-lg object-cover"
+      className="w-64 h-64 mx-auto rounded-lg object-cover object-center"
     />
     <h3 className="text-lg font-semibold mt-4">{member.name}</h3>
     <p className="text-sm text-gray-500">{member.role}</p>
-    <SocialMediaIcons />
+    <SocialMediaIcons links={member.links} />
   </div>
 );
 function Team() {
